@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from .models import Ability
 
-# Create your views here.
+def home(request):
+    abilities = Ability.objects.all()
+    return render(request, 'portfolio/home.html', {
+        'abilities': abilities, 
+    })
